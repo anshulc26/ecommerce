@@ -1,0 +1,32 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.0
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - 'Gemfile.lock'
+    - 'bin/**/*'
+    - 'config/initializers/devise.rb'
+    - 'db/**/*'
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+  Description: 'Block has too many lines.'
+  Enabled: true
+  Max: 50
+
+Style/ClassAndModuleChildren:
+  Description: 'Checks style of children classes and modules.'
+  Enabled: false
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Description: 'Missing frozen string literal comment.'
+  Enabled: false
