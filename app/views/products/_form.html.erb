@@ -1,0 +1,49 @@
+<%= form_with(model: product, local: true, multipart: true, id: "product_form") do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :image, class: "form-label" %>
+    <% if product.image? %>
+      <p>
+        <%= image_tag(product.image_url, class: "img-fluid img-thumbnail w-25") %>
+      </p>
+    <% end %>
+    <%= form.file_field :image, class: "form-control" %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :sku, class: "form-label" %>
+    <%= form.text_field :sku, class: "form-control" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.text_field :price, class: "form-control" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :quantity, class: "form-label" %>
+    <%= form.number_field :quantity, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to t('global.cancel'), products_path, class: "btn btn-outline-danger" %>
+  </div>
+<% end %>

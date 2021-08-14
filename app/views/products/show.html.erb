@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12">
+    <div class="pt-4 pb-4">
+      <p>
+        <h2 class="d-inline"><%= @product.name %></h2>
+        <%= link_to t('products.edit_product'), edit_product_path(@product), class: "btn btn-primary btn-sm float-end" %>
+      </p>
+      <%= link_to t('global.back'), products_path, class: "btn btn-outline-primary btn-sm" %>
+    </div>
+
+    <p>
+      <strong><%= t('products.sku') %>:</strong>
+      <%= @product.sku %>
+    </p>
+
+    <p>
+      <strong><%= t('products.price') %>:</strong>
+      <%= @product.price %>
+    </p>
+
+    <p>
+      <strong><%= t('products.quantity') %>:</strong>
+      <%= @product.quantity %>
+    </p>
+
+    <p>
+      <strong><%= t('products.image') %>:</strong>
+      <% if @product.image? %>
+        <%= image_tag(@product.image_url, class: "img-fluid img-thumbnail w-50") %>
+      <% else %>
+        <%= image_tag(asset_path("product-default.jpg"), class: "img-fluid img-thumbnail") %>
+      <% end %>
+    </p>
+  </div>
+</div>

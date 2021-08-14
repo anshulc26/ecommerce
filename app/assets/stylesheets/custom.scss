@@ -1,0 +1,22 @@
+.error {
+  color: #b94a48;
+  line-height: normal;
+}
+
+.product-image {
+  width: 413px;
+  height: 276px;
+}
+
+table {
+  &.products {
+    img {
+      width: 50px;
+    }
+
+    .sort_link {
+      color: #212529;
+      text-decoration: none;
+    }
+  }
+}

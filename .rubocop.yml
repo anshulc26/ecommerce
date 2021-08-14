@@ -14,6 +14,11 @@ AllCops:
     - 'db/**/*'
     - 'spec/**/*'
 
+Metrics/AbcSize:
+  Description: 'Assignment Branch Condition size.'
+  Enabled: false
+  Max: 20
+
 Metrics/BlockLength:
   Description: 'Block has too many lines.'
   Enabled: true

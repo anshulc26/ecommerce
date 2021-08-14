@@ -72,8 +72,8 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0.5'
   gem 'rspec-rails', '~> 5.0.1'
   gem 'selenium-webdriver', '~> 3.142.7'
+  gem 'shoulda-matchers', '~> 5.0.0'
   gem 'simplecov', '~> 0.21.2'
-  gem 'simplecov-lcov', '~> 0.8.0'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers', '~> 4.6.0'
 end

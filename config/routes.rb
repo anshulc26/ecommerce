@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get '/check_email_unique' => 'users#check_email_unique', as: :check_email_unique
+
+  resources :products
+
+  get '/marketplace', to: 'marketplace#index', as: :marketplace
+
+  root to: 'dashboard#index'
 end

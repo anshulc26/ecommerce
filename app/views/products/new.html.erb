@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-6 offset-3">
+    <div class="pt-4 pb-4">
+      <h2><%= t('products.new_product') %></h2>
+      <%= link_to t('global.back'), products_path, class: "btn btn-outline-primary btn-sm" %>
+    </div>
+
+    <%= render 'form', product: @product %>
+  </div>
+</div>

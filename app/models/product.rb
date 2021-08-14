@@ -7,4 +7,6 @@ class Product < ApplicationRecord
   validates :name, :sku, presence: true, length: { maximum: 255 }
   validates :price, presence: true, numericality: true
   validates :quantity, presence: true, numericality: { only_integer: true }
+
+  scope :of_state, ->(state_code) { joins(:user).where(users: { state_code: state_code }) }
 end
