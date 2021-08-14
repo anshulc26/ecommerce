@@ -1,6 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV['POSTGRES_HOST'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -13,10 +14,10 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: ecommerce
+  username: <%= ENV['POSTGRES_USERNAME'] %>
 
   # The password associated with the postgres role (username).
-  password: ecommerce
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -42,8 +43,8 @@ development:
 test:
   <<: *default
   database: ecommerce_test
-  username: ecommerce
-  password: ecommerce
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -68,5 +69,5 @@ test:
 production:
   <<: *default
   database: ecommerce_production
-  username: ecommerce
-  password: <%= ENV['ECOMMERCE_DATABASE_PASSWORD'] %>
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
